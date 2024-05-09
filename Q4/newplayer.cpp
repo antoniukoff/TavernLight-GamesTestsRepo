@@ -23,7 +23,7 @@ void Game::addItemToPlayer(const std::string& recipient, uint16_t itemId)
 
     if (player->isOffline()) {
         IOLoginData::savePlayer(player);
-        delete player; // if online free the resources of the player even if was valid on line 4
+        delete player; // if offline free the resources of the player even if was valid on line 4
     }
     // I am guessing database object management will handle the deletion of player object
     // So need to delete player if it's online as loadPlayerByName() stores it in database with properly set up properties
