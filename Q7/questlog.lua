@@ -60,10 +60,10 @@ function animateButtonToLeft(duration, distance)
         end
         scheduleEvent(updateButtonPosition, 30) --continue updating
     end
-    updateButtonPosition()
+    updateButtonPosition() -- initial call to the function
 end
-
-function setRandomPosY(button)
+-- funciton called in the OnClicked function in the otui file
+function setRandomPosY(button) 
   startTime = g_clock.millis()
 
   button:setX(initXPos)
@@ -72,7 +72,7 @@ function setRandomPosY(button)
     print("ERROR: button:getParent() is nil")
     return
   end
-
+  --Get window dimensions
   local windowStartY = button:getParent():getY() + button:getHeight()
   local windowEndY = button:getParent():getY() + button:getParent():getHeight() - button:getHeight()
   button:setY(math.random(windowStartY, windowEndY))
